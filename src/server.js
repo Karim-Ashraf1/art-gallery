@@ -90,7 +90,7 @@ export function makeServer({ environment = "development" } = {}) {
       this.namespace = "api";
       // auth routes (public)
       this.post("/auth/signup", signupHandler.bind(this));
-      this.post("/auth/login", loginHandler.bind(this));
+      this.post("/auth/login", loginHandler.bind(this)); // login endpoint that has the handler having an issue (7)
 
       // products routes (public)
       this.get("/products", getAllProductsHandler.bind(this));

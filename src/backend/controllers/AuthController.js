@@ -60,6 +60,7 @@ export const signupHandler = function (schema, request) {
  * */
 
 export const loginHandler = function (schema, request) {
+  console.log("Entered loginHandler"); // checking if we entered the handler (8)
   const { email, password } = JSON.parse(request.requestBody);
   try {
     const foundUser = schema.users.findBy({ email });
@@ -73,7 +74,7 @@ export const loginHandler = function (schema, request) {
     if (password === foundUser.password) {
       const encodedToken = sign(
         { _id: foundUser._id, email },
-        process.env.REACT_APP_JWT_SECRET
+        process.env.REACT_APP_JWT_SECRET // this was the error as the REACT_APP_JWT_SECRET env variable was not defined (10)
       );
       foundUser.password = undefined;
       return new Response(200, {}, { foundUser, encodedToken });
@@ -88,6 +89,7 @@ export const loginHandler = function (schema, request) {
       }
     );
   } catch (error) {
+    console.log("error catched in login handler: ", error); // debugging error type (9)
     return new Response(
       500,
       {},

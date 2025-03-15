@@ -33,7 +33,10 @@ export const AuthProvider = ({ children }) => {
       setLoginLoading(true);
       setError("");
       setLoginCredential({ email, password });
+
+      console.log("Before calling loginService"); // checking if the loginService is called (3)
       const response = await loginService(email, password);
+      console.log("Response from loginService:", response); // this line was not logged so the error was in the loginService (4)
 
       if (response.status === 200) {
         setLoginLoading(false);
@@ -62,7 +65,8 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       setLoginLoading(false);
-      setError(error.response.data.errors[0]);
+      console.log(error.response?.data?.errors?.[0]); // logging the error to know why the login failed (2)
+      setError(error.response?.data?.errors?.[0]);
     } finally {
       setLoginLoading(false);
     }

@@ -20,7 +20,7 @@ export const Login = () => {
       <div className="login-container">
         <h2>Login</h2>
         <form
-          onSubmit={(e) => loginHandler(e, email, password)}
+          onSubmit={(e) => loginHandler(e, email, password)} // Going to the loginHandler function to debug the error (1)
           className="login-body"
         >
           <div className="email-container">
