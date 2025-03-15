@@ -1,43 +1,88 @@
-.ordered-products-container {
-  display: flex;
-  flex-direction: column;
+.cart-products-summary {
+  margin-bottom: 30px;
 }
 
-.ordered-product-card {
+.cart-products-summary h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.product-list {
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.product-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.product-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.product-list::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
+}
+
+.product-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: -5px;
+  padding: 15px 0;
+  border-bottom: 1px solid #eaeaea;
 }
 
-.ordered-product-card:first-child {
+.product-item:last-child {
+  border-bottom: none;
+}
+
+.product-image {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  background-color: #f7f7f7;
+}
+
+.product-qty {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
-.ordered-product-card img {
-  width: 75px;
-  border-radius: 7px;
-  background-color: rgb(241, 241, 241);
+.product-info {
+  flex: 1;
 }
 
-.product-details-container {
-  padding: 15px;
-  margin:  15px 15px  0 15px ;
-  color: grey
+.product-info h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
 }
 
-.product-details-container h1 {
-  text-align: center;
-  font-size: 40px;
-  color: black
-}
-
-@media (min-width: 768px) {
-  .ordered-product-card {
-    justify-content: space-between;
-    align-items: space-between;
-  }
+.product-price {
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
 }

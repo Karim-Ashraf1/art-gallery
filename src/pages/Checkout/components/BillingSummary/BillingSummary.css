@@ -1,27 +1,51 @@
-.billing-container {
-  border-top: 1px solid rgb(226, 226, 226);
-  padding: 15px;
-  margin: 0 15px;
+.billing-summary {
+  margin-bottom: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eaeaea;
 }
 
-.billing-container h1 {
-  text-align: center;
+.billing-summary h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
-.price-details-container > * {
-  margin-bottom: 10px;
+.price-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-row {
   display: flex;
   justify-content: space-between;
-  color: grey
+  align-items: center;
+  color: #666;
+  font-size: 0.95rem;
 }
 
-.price-details-container > *:first-child {
-  margin-top: 10px;
+.price-row.discount {
+  margin-bottom: 5px;
 }
 
-.price-details-container > *:last-child {
-  margin-top :10px;
+.price-row.total {
+  margin-top: 15px;
+  border-top: 1px solid #eaeaea;
+  padding-top: 15px;
+  font-size: 1.25rem;
   font-weight: 700;
-  font-size: 35px;
-  color: black
+  color: #000;
+}
+
+.price {
+  font-weight: 500;
+}
+
+.savings {
+  color: #10b981;
+}
+
+.free {
+  color: #10b981;
+  font-weight: 500;
 }

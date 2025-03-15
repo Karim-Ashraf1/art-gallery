@@ -4,33 +4,34 @@ import { useUserData } from "../../../../contexts/UserDataProvider.js";
 
 export const BillingSummary = () => {
   const { userDataState } = useUserData();
+  
+  const originalTotal = Number(userDataState.orderDetails?.cartItemsTotal || 0);
+  const discountedTotal = Number(userDataState.orderDetails?.cartItemsDiscountTotal || 0);
+  const savedAmount = originalTotal - discountedTotal;
 
   return (
-    <div className="billing-container">
-      <div className="price-details-container">
-        <div>
-          <span className="subtotal">Subtotal</span>
-          <span>${userDataState.orderDetails?.cartItemsTotal}</span>
+    <div className="billing-summary">
+      <h3>Price Details</h3>
+      
+      <div className="price-breakdown">
+        <div className="price-row">
+          <span>Subtotal</span>
+          <span className="price">${originalTotal.toFixed(2)}</span>
         </div>
 
-        <div>
-          <span className="subtotal">Discount</span>
-          <span>
-            $
-            {(
-              userDataState.orderDetails?.cartItemsTotal -
-              userDataState.orderDetails?.cartItemsDiscountTotal
-            ).toFixed(2)}
-          </span>
+        <div className="price-row discount">
+          <span>Discount</span>
+          <span className="price savings">-${savedAmount.toFixed(2)}</span>
         </div>
 
-        <div>
+        <div className="price-row">
           <span>Shipping</span>
-          <span>Free</span>
+          <span className="price free">Free</span>
         </div>
-        <div>
+        
+        <div className="price-row total">
           <span>Total</span>
-          <span>${userDataState.orderDetails?.cartItemsDiscountTotal}</span>
+          <span className="price">${discountedTotal.toFixed(2)}</span>
         </div>
       </div>
     </div>

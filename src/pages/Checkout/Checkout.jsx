@@ -9,11 +9,12 @@ export const Checkout = () => {
   const { userDataState } = useUserData();
   const navigate = useNavigate();
   const { loading } = useData();
+  
   return (
     !loading &&
     (userDataState.cartProducts.length ? (
-      <div>
-        <h1 className="page-heading">Checkout!</h1>
+      <div className="checkout-page">
+        <h1 className="page-heading">Checkout</h1>
         <div className="checkout-container">
           <AddressSection />
           <OrderSummary />

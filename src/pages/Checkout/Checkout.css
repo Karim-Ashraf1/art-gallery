@@ -1,15 +1,48 @@
+.checkout-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 .checkout-container {
   display: flex;
   flex-flow: column nowrap;
+  gap: 20px;
 }
 
 .page-heading {
+  font-size: 2.5rem;
   text-align: center;
-  margin: 20px;
+  margin: 30px 0;
+  font-weight: 700;
+}
+
+.no-items-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.explore-btn {
+  margin-top: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.explore-btn:hover {
+  background-color: black;
+  transform: translateY(-2px);
 }
 
 @media (min-width: 768px) {
   .checkout-container {
     flex-flow: row nowrap;
+    align-items: flex-start;
   }
 }
